@@ -9,7 +9,7 @@ LABEL "com.github.actions.color"="blue"
 LABEL "com.github.actions.name"="Build and Push Registry"
 LABEL "com.github.actions.description"="Login, Build Image, Tag and Push"
 
-RUN apt-get install git-crypt
+RUN sudo apt-get install git-crypt
 
 COPY LICENSE README.md /
 
