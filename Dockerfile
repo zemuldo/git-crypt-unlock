@@ -1,13 +1,13 @@
 FROM alpine:latest
 
-LABEL "name"="Docker-Build-Push"
+LABEL "name"="Git-Crypt Unlock"
 LABEL "maintainer"="Zemuldo <danstan.otieno@gmail.com>"
-LABEL "version"="1.0.0"
+LABEL "version"="1.0"
 
-LABEL "com.github.actions.icon"="package"
-LABEL "com.github.actions.color"="blue"
-LABEL "com.github.actions.name"="Build and Push Registry"
-LABEL "com.github.actions.description"="Login, Build Image, Tag and Push"
+LABEL "com.github.actions.icon"="unlock"
+LABEL "com.github.actions.color"="red"
+LABEL "com.github.actions.name"="Git-Crypt Unlock"
+LABEL "com.github.actions.description"="Unlock files encrypted using Git-Crypt"
 
 RUN apk --update add ca-certificates bash curl git g++ gnupg make openssh openssl openssl-dev && rm -rf /var/cache/apk/*
 

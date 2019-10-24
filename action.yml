@@ -5,3 +5,7 @@ description: 'Unlock files encrypted using Git-Crypt'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+
+branding:
+  icon: 'unlock'  
+  color: 'red'
