@@ -1,6 +1,8 @@
 name: 'Git-Crypt Unlock'
 
-description: 'Unlock files encrypted using Git-Crypt'
+author: 'Danstan Onyango - Zemuldo'
+
+description: 'Action to Unlock files encrypted using Git-Crypt, supports keys with passphrase'
 
 runs:
   using: 'docker'
@@ -8,4 +10,4 @@ runs:
 
 branding:
   icon: 'unlock'  
-  color: 'red'
+  color: 'green'

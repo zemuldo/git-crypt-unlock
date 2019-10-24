@@ -7,7 +7,7 @@ LABEL "version"="1.0"
 LABEL "com.github.actions.icon"="unlock"
 LABEL "com.github.actions.color"="red"
 LABEL "com.github.actions.name"="Git-Crypt Unlock"
-LABEL "com.github.actions.description"="Unlock files encrypted using Git-Crypt"
+LABEL "com.github.actions.description"="Action to Unlock files encrypted using Git-Crypt, supports keys with passphrase"
 
 RUN apk --update add ca-certificates bash curl git g++ gnupg make openssh openssl openssl-dev && rm -rf /var/cache/apk/*
 
