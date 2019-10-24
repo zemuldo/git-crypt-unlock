@@ -1,0 +1,7 @@
+name: 'Git-Crypt Unlock'
+
+description: 'Unlock files encrypted using Git-Crypt'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
