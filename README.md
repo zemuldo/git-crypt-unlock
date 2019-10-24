@@ -21,11 +21,10 @@ on:
       branches:    
           - master
 jobs:
-  to_gcr_io:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-
     - name: Git-Crypt Unlock
       uses: zemuldo/git-crypt-unlock@master
       env: 
