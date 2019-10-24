@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM circleci/elixir:1.8.2
 
 LABEL "name"="Docker-Build-Push"
 LABEL "maintainer"="Zemuldo <danstan.otieno@gmail.com>"
