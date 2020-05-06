@@ -4,10 +4,10 @@ author: 'Danstan Onyango - Zemuldo'
 
 description: 'Action to Unlock files encrypted using Git-Crypt, supports keys with passphrase'
 
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
-
 branding:
   icon: 'unlock'  
   color: 'green'
+
+runs:
+  using: node12
+  main: src/main.js

@@ -1,0 +1,14 @@
+name: Test
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1.0.0
+      - name: Use actions/git-crypt-unlock
+        uses: ./
+
+      - name: Check gpg
+        run: |-
+          
