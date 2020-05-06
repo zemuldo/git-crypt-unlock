@@ -11,7 +11,7 @@ jobs:
       - name: Use actions/git-crypt-unlock
         uses: ./
 
-      - name: Check gpg
+      - name: Check Git-Crypt Setup
         run: |-
-        git-crypt unlock
+          git-crypt unlock
           
