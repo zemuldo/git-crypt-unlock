@@ -8,12 +8,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1.0.0
-      
+
       - name: Setup node 12
         uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      - run: npm i
 
       - name: Use actions/git-crypt-unlock
         uses: ./
