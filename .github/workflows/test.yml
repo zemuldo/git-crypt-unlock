@@ -1,4 +1,4 @@
-name: Test
+name: Test Git-Crypt Unlock
 
 on: push
 
@@ -9,8 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v1.0.0
 
-      - name: Setup node 12
+      - name: Setup Node 12
         uses: actions/setup-node@v1
+
+      - name: Setup Tool Packages
+        run: yarn install
 
       - name: Use actions/git-crypt-unlock
         uses: ./

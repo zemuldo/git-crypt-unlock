@@ -1,6 +1,6 @@
 node_modules
 Library
-
+node_modules
 git-crypt-key.asc
 exportedKeyFilename.asc
 
