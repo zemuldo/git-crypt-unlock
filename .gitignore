@@ -1,5 +1,3 @@
-node_modules
-
 git-crypt-key.asc
 exportedKeyFilename.asc
 
