@@ -1,1 +1,9 @@
 node_modules
+
+git-crypt-key.asc
+exportedKeyFilename.asc
+
+.gnupg
+*dummy*
+
+.node_repl_history
