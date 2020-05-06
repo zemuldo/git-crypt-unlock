@@ -22,4 +22,6 @@ jobs:
       - name: Check Git-Crypt Setup
         run: |-
           git-crypt unlock
+          echo "Ensuring file decrypt works at the end of workflow"
+          grep -q "Secret file" .secret; [ $? -eq 0 ] && exit 0 || exit 1
           
