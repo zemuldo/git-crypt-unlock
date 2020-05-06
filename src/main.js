@@ -10,6 +10,5 @@ main().catch(err => {
 })
 
 async function main() {
-  checkPlatform()
   await installer(process.platform)
 }
