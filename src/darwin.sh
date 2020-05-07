@@ -18,7 +18,10 @@ gpgconf --kill gpg-agent
 gpg-agent --daemon --allow-preset-passphrase --max-cache-ttl 3153600000
 
 echo "Try a dummy export of key to cache pass"
-gpg --pinentry-mode=loopback --passphrase  $GPG_PASSPHRASE -a --export-secret-keys $GPG_KEY_ID > dummy.asc
+GPG_PATH=`gpgconf --list-dirs libexecdir`
+echo $GPG_PATH
+
+$GPG_PATH/gpg-preset-passphrase -c $GPG_KEY_GRIP <<<  $GPG_KEY_PASS
 
 HOMEBREW_NO_AUTO_UPDATE=1 brew install git-crypt
 
