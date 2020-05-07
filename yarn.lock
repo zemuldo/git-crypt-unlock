@@ -38,6 +38,11 @@
     semver "^6.1.0"
     uuid "^3.3.2"
 
+"@zeit/ncc@^0.22.1":
+  version "0.22.1"
+  resolved "https://registry.yarnpkg.com/@zeit/ncc/-/ncc-0.22.1.tgz#480e8f550f857a50942828993661b08393fbb49b"
+  integrity sha512-Qq3bMuonkcnV/96jhy9SQYdh39NXHxNMJ1O31ZFzWG9n52fR2DLtgrNzhj/ahlEjnBziMLGVWDbaS9sf03/fEw==
+
 semver@^6.1.0, semver@^6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
