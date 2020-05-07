@@ -27,7 +27,7 @@ jobs:
           git-crypt unlock
           echo "Ensuring file decrypt works at the end of workflow"
           grep -q "Secret file" .secret; [ $? -eq 0 ] && exit 0 || exit 1
-  test-linux:
+  test-mac:
     runs-on: macos-latest
 
     steps:
