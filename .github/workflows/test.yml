@@ -3,8 +3,32 @@ name: Test Git-Crypt Unlock
 on: push
 
 jobs:
-  test:
+  test-linux:
     runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1.0.0
+
+      - name: Setup Node 12
+        uses: actions/setup-node@v1
+
+      - name: Setup Tool Packages
+        run: yarn install
+
+      - name: Use actions/git-crypt-unlock
+        uses: ./
+        env: 
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_KEY_GRIP: ${{ secrets.GPG_KEY_GRIP }}
+          GPG_KEY_PASS: ${{ secrets.GPG_KEY_PASS }}
+
+      - name: Check Git-Crypt Setup
+        run: |-
+          git-crypt unlock
+          echo "Ensuring file decrypt works at the end of workflow"
+          grep -q "Secret file" .secret; [ $? -eq 0 ] && exit 0 || exit 1
+  test-linux:
+    runs-on: macos-latest
 
     steps:
       - uses: actions/checkout@v1.0.0
