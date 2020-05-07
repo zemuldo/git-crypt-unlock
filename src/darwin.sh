@@ -13,9 +13,11 @@ gpgconf --kill gpg-agent
 
 gpg-agent --daemon --allow-preset-passphrase --max-cache-ttl 3153600000
 
-gpg-preset-passphrase --preset --passphrase "$GPG_KEY_PASS" "$GPG_KEY_GRIP"
+gpg --pinentry-mode=loopback --passphrase  $GPG_PASSPHRASE -a --export-secret-keys $GPG_KEY_ID > "$HOME"/dummy.asc
 
 HOMEBREW_NO_AUTO_UPDATE=1 brew install git-crypt
 
 git-crypt unlock
+
+rm "$HOME"/dummy.asc
 
