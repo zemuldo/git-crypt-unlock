@@ -22,11 +22,6 @@ $GPG_PATH/gpg-preset-passphrase -c $GPG_KEY_GRIP <<<  $GPG_KEY_PASS
 
 HOMEBREW_NO_AUTO_UPDATE=1 brew install git-crypt
 
-git stash -u
-
 git-crypt unlock
-
-git stash apply
-git stash drop
 
 rm "$HOME"/git-crypt-key.asc

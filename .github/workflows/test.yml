@@ -12,9 +12,6 @@ jobs:
       - name: Setup Node 12
         uses: actions/setup-node@v1
 
-      - name: Setup Tool Packages
-        run: yarn install
-
       - name: Use actions/git-crypt-unlock
         uses: ./
         env: 
