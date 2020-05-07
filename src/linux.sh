@@ -14,12 +14,7 @@ gpg-agent --daemon --allow-preset-passphrase --max-cache-ttl 3153600000
 echo "Intalling GitCrypt"
 sudo apt-get install git-crypt
 
-git stash -u
-
 git-crypt unlock
-
-git stash apply
-git stash drop
 
 rm "$HOME"/git-crypt-key.asc
 
