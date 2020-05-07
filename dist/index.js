@@ -969,6 +969,9 @@ async function main() {
             console.log("Setting up on Linux")
             await exec(__webpack_require__.ab + "linux.sh")
         }
+        else {
+            console.error("This version only supports Linux and OSX, Use v1.0 for any other platform")
+        }
     } catch(error){
         console.error(error)
         process.exit(1)
