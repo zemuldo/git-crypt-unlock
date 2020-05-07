@@ -7,5 +7,15 @@
     "@actions/exec": "^1.0.0",
     "@actions/tool-cache": "^1.1.0",
     "semver": "^6.3.0"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.20.5",
+    "eslint": "^6.3.0",
+    "jest": "^24.9.0"
+  },
+  "scripts": {
+    "lint": "eslint index.js",
+    "package": "ncc build src/main.js -o dist",
+    "test": "eslint index.js && jest"
   }
 }
