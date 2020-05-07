@@ -24,7 +24,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v1.0
     - name: Git-Crypt Unlock
       uses: zemuldo/git-crypt-unlock@v1
       env: 
