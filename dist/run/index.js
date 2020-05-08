@@ -982,8 +982,8 @@ main().catch(err => {
 async function main() {
     try {
         if(process.platform == "darwin"){
-            console.log("Setting up on OS X \n")
-            await exec(__webpack_require__.ab + "darwin.sh")
+            console.log("Setting up for local action \n")
+            await exec.exec('node', ['build.js']);
         }
     
         else if(process.platform == "linux") {
