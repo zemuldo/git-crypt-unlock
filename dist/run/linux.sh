@@ -8,11 +8,12 @@ else
   exit 1
 fi
 
-GPG_KEY_FILE_NAME="$HOME"/git-crypt-key.asc
 
-echo "$GPG_PRIVATE_KEY" | base64 -d > GPG_KEY_FILE_NAME
+echo "$GPG_PRIVATE_KEY" | base64 -d > "$HOME"/git-crypt-key.asc
 
-gpg --batch --import GPG_KEY_FILE_NAME
+gpg --batch --import "$HOME"/git-crypt-key.asc
+
+rm "$HOME"/git-crypt-key.asc
 
 if [ -n "$GPG_KEY_PASS" ] && [ -n "$GPG_KEY_GRIP" ]
  then
