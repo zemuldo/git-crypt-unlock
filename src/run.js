@@ -1,6 +1,6 @@
 const core = require('@actions/core')
-const {exec} = require('@actions/exec')
-const path = require('path')
+const run = require("./run/main")
+const setup = require("./setup/main")
 
 main().catch(err => {
   core.setFailed(err.message)
@@ -11,20 +11,9 @@ async function main() {
 
         if(process.env.GITHUB_REPOSITORY == "zemuldo/git-crypt-unlock"){
             console.log("Setting up for local action \n")
-            await exec.exec('node', ['build.js']);
+            await setup();
         }
-        if(process.platform == "darwin"){
-            console.log("Setting up on OS X \n")
-            await exec(path.join(__dirname, 'run/darwin.sh'))
-        }
-    
-        else if(process.platform == "linux") {
-            console.log("Setting up on Linux")
-            await exec(path.join(__dirname, 'run/linux.sh'))
-        }
-        else {
-            console.error("This version only supports Linux and OSX, Use v1.0 for any other platform")
-        }
+        await run()
     } catch(error){
         console.error(error)
         process.exit(1)

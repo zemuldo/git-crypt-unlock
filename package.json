@@ -11,6 +11,6 @@
     "@zeit/ncc": "^0.20.5"
   },
   "scripts": {
-    "package": "ncc build src/build.js -o dist/build && ncc build src/run.js -o dist/run"
+    "package": "ncc build src/setup.js -o dist/setup && ncc build src/run.js -o dist/run"
   }
 }
