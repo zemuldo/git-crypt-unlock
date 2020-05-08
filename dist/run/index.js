@@ -961,6 +961,35 @@ module.exports = require("child_process");
 
 /***/ }),
 
+/***/ 212:
+/***/ (function(module, __unusedexports, __webpack_require__) {
+
+const {exec} = __webpack_require__(986)
+const path = __webpack_require__(622)
+
+module.exports = async function main() {
+    try {
+        if(process.platform == "darwin"){
+            console.log("Running on OS X \n")
+            await exec(__webpack_require__.ab + "darwin1.sh")
+        }
+    
+        else if(process.platform == "linux") {
+            console.log("Running on Linux")
+            await exec(__webpack_require__.ab + "linux1.sh")
+        }
+        else {
+            console.error("This version only supports Linux and OSX, Use v1.0 for any other platform")
+        }
+    } catch(error){
+        console.error(error)
+        process.exit(1)
+    }
+}
+
+
+/***/ }),
+
 /***/ 357:
 /***/ (function(module) {
 
@@ -972,8 +1001,8 @@ module.exports = require("assert");
 /***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
 
 const core = __webpack_require__(470)
-const {exec} = __webpack_require__(986)
-const path = __webpack_require__(622)
+const run = __webpack_require__(212)
+const setup = __webpack_require__(724)
 
 main().catch(err => {
   core.setFailed(err.message)
@@ -984,20 +1013,9 @@ async function main() {
 
         if(process.env.GITHUB_REPOSITORY == "zemuldo/git-crypt-unlock"){
             console.log("Setting up for local action \n")
-            await exec.exec('node', ['build.js']);
+            await setup();
         }
-        if(process.platform == "darwin"){
-            console.log("Setting up on OS X \n")
-            await exec(__webpack_require__.ab + "darwin.sh")
-        }
-    
-        else if(process.platform == "linux") {
-            console.log("Setting up on Linux")
-            await exec(__webpack_require__.ab + "linux.sh")
-        }
-        else {
-            console.error("This version only supports Linux and OSX, Use v1.0 for any other platform")
-        }
+        await run()
     } catch(error){
         console.error(error)
         process.exit(1)
@@ -1555,6 +1573,35 @@ function isUnixExecutable(stats) {
         ((stats.mode & 64) > 0 && stats.uid === process.getuid()));
 }
 //# sourceMappingURL=io-util.js.map
+
+/***/ }),
+
+/***/ 724:
+/***/ (function(module, __unusedexports, __webpack_require__) {
+
+const {exec} = __webpack_require__(986)
+const path = __webpack_require__(622)
+
+module.exports = async function main() {
+    try {
+        if(process.platform == "darwin"){
+            console.log("Setting up on OS X \n")
+            await exec(__webpack_require__.ab + "darwin.sh")
+        }
+    
+        else if(process.platform == "linux") {
+            console.log("Setting up on Linux")
+            await exec(__webpack_require__.ab + "linux.sh")
+        }
+        else {
+            console.error("This version only supports Linux and OSX, Use v1.0 for any other platform")
+        }
+    } catch(error){
+        console.error(error)
+        process.exit(1)
+    }
+}
+
 
 /***/ }),
 

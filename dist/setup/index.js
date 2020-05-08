@@ -34,7 +34,7 @@ module.exports =
 /******/ 	// the startup function
 /******/ 	function startup() {
 /******/ 		// Load entry module and return exports
-/******/ 		return __webpack_require__(108);
+/******/ 		return __webpack_require__(636);
 /******/ 	};
 /******/
 /******/ 	// run startup
@@ -954,40 +954,6 @@ module.exports = require("os");
 
 /***/ }),
 
-/***/ 108:
-/***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
-
-const core = __webpack_require__(470)
-const {exec} = __webpack_require__(986)
-const path = __webpack_require__(622)
-
-main().catch(err => {
-  core.setFailed(err.message)
-})
-
-async function main() {
-    try {
-        if(process.platform == "darwin"){
-            console.log("Setting up on OS X \n")
-            await exec(__webpack_require__.ab + "darwin.sh")
-        }
-    
-        else if(process.platform == "linux") {
-            console.log("Setting up on Linux")
-            await exec(__webpack_require__.ab + "linux.sh")
-        }
-        else {
-            console.error("This version only supports Linux and OSX, Use v1.0 for any other platform")
-        }
-    } catch(error){
-        console.error(error)
-        process.exit(1)
-    }
-}
-
-
-/***/ }),
-
 /***/ 129:
 /***/ (function(module) {
 
@@ -1344,6 +1310,19 @@ module.exports = require("path");
 
 /***/ }),
 
+/***/ 636:
+/***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
+
+const core = __webpack_require__(470)
+const setup = __webpack_require__(724)
+
+setup().catch(err => {
+  core.setFailed(err.message)
+})
+
+
+/***/ }),
+
 /***/ 669:
 /***/ (function(module) {
 
@@ -1550,6 +1529,35 @@ function isUnixExecutable(stats) {
         ((stats.mode & 64) > 0 && stats.uid === process.getuid()));
 }
 //# sourceMappingURL=io-util.js.map
+
+/***/ }),
+
+/***/ 724:
+/***/ (function(module, __unusedexports, __webpack_require__) {
+
+const {exec} = __webpack_require__(986)
+const path = __webpack_require__(622)
+
+module.exports = async function main() {
+    try {
+        if(process.platform == "darwin"){
+            console.log("Setting up on OS X \n")
+            await exec(__webpack_require__.ab + "darwin.sh")
+        }
+    
+        else if(process.platform == "linux") {
+            console.log("Setting up on Linux")
+            await exec(__webpack_require__.ab + "linux.sh")
+        }
+        else {
+            console.error("This version only supports Linux and OSX, Use v1.0 for any other platform")
+        }
+    } catch(error){
+        console.error(error)
+        process.exit(1)
+    }
+}
+
 
 /***/ }),
 
