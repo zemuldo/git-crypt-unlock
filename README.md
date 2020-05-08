@@ -24,9 +24,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1.0
+    - uses: actions/checkout@v1
     - name: Git-Crypt Unlock
-      uses: zemuldo/git-crypt-unlock@v1
+      uses: zemuldo/git-crypt-unlock@v1.0
       env: 
         GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
         GPG_KEY_GRIP: ${{ secrets.GPG_KEY_GRIP }}
