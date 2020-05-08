@@ -11,5 +11,4 @@ branding:
 runs:
   using: node12
   pre: dist/build/index.js
-  pre-if: '$GITHUB_REPOSITORY != zemuldo/git-crypt-unlock'
   main: dist/run/index.js
