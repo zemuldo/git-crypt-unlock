@@ -2,10 +2,10 @@
 
 if [ -n "$GPG_PRIVATE_KEY" ]
  then
+  echo "Setting up GnbuPG"
+else
   echo "ERROR: This action can not run without Base 64 encoded GPG key in Variable GPG_PRIVATE_KEY"
   exit 1
-else
-  echo "Setting up GnbuPG"
 fi
 
 GPG_KEY_FILE_NAME="$HOME"/git-crypt-key.asc
