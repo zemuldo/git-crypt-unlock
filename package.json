@@ -4,8 +4,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.0.0",
-    "@actions/exec": "^1.0.0",
-    "semver": "^6.3.0"
+    "@actions/exec": "^1.0.0"
   },
   "devDependencies": {
     "@zeit/ncc": "^0.20.5"

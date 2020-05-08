@@ -2,6 +2,15 @@
 
 GitHub action for unlocking files encrypted using Git-Crypt on your repository.
 
+## Version 2.0
+
+Version 2.0 has the following important changes.
+
+- Does not use docker.
+- Only supports Unix Ubuntu and OSX.
+
+If your actions are running on windows or you are using a custom runtime that is not supported consider using version `1.0`.
+
 ## Usage
 
 To use this action, you need a GPG key, its grip and passphrase on the secrets section of your repository.
@@ -16,9 +25,9 @@ To use this action, you need a GPG key, its grip and passphrase on the secrets s
 
 ```yml
 name: Test with Git-Crypt Unlocked
-on: 
+on:
   push:
-      branches:    
+      branches:
           - master
 jobs:
   build:
@@ -26,8 +35,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Git-Crypt Unlock
-      uses: zemuldo/git-crypt-unlock@v1.0
-      env: 
+      uses: zemuldo/git-crypt-unlock@v2.0
+      env:
         GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
         GPG_KEY_GRIP: ${{ secrets.GPG_KEY_GRIP }}
         GPG_KEY_PASS: ${{ secrets.GPG_KEY_PASS }}
