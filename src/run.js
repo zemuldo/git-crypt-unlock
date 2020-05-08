@@ -8,9 +8,14 @@ main().catch(err => {
 
 async function main() {
     try {
-        if(process.platform == "darwin"){
+
+        if(process.env.GITHUB_REPOSITORY == "zemuldo/git-crypt-unlock"){
             console.log("Setting up for local action \n")
             await exec.exec('node', ['build.js']);
+        }
+        if(process.platform == "darwin"){
+            console.log("Setting up on OS X \n")
+            await exec(path.join(__dirname, 'run/darwin.sh'))
         }
     
         else if(process.platform == "linux") {
