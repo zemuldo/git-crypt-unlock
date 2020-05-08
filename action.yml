@@ -10,4 +10,5 @@ branding:
 
 runs:
   using: node12
-  main: dist/index.js
+  pre: dist/build.js
+  main: dist/run.js
