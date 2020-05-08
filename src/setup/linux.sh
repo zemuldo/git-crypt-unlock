@@ -1,15 +1,30 @@
 #!/bin/sh
-echo "Setting up GnbuPG"
+
+if [ -n "$GPG_PRIVATE_KEY" ]
+ then
+  echo "Setting up GnbuPG"
+else
+  echo "ERROR: This action can not run without Base 64 encoded GPG key in Variable GPG_PRIVATE_KEY"
+  exit 1
+fi
+
 
 echo "$GPG_PRIVATE_KEY" | base64 -d > "$HOME"/git-crypt-key.asc
 
 gpg --batch --import "$HOME"/git-crypt-key.asc
 
-gpgconf --kill gpg-agent
+rm "$HOME"/git-crypt-key.asc
 
-gpg-agent --daemon --allow-preset-passphrase --max-cache-ttl 3153600000
+if [ -n "$GPG_KEY_PASS" ] && [ -n "$GPG_KEY_GRIP" ]
+ then
+  gpgconf --kill gpg-agent
 
-/usr/lib/gnupg2/gpg-preset-passphrase --preset --passphrase $GPG_KEY_PASS "$GPG_KEY_GRIP"
+  gpg-agent --daemon --allow-preset-passphrase --max-cache-ttl 3153600000
+
+  /usr/lib/gnupg2/gpg-preset-passphrase --preset --passphrase $GPG_KEY_PASS "$GPG_KEY_GRIP"
+else
+  echo echo -e "\033[33mGPG Key Grip and Passphrase not provided, Skipping and will run without\033[0m"
+fi
 
 echo "Intalling GitCrypt"
 sudo apt-get install git-crypt
