@@ -6,12 +6,12 @@ GitHub action for unlocking files encrypted using Git-Crypt on your repository.
 
 Version 3.0 has the following important changes.
 
-- Does not use docker.
-- Only supports Ubuntu and OSX runtimes.
+- Will not use docker.
+- Curretnly only supports Ubuntu and OSX runtimes.
 
 If your actions are running on windows or you are using a custom runtime that is not supported you can do two things
 
-- Use version `2.0`.
+- Use version [v2.0](https://github.com/marketplace/actions/git-crypt-unlock?version=v2.0).
 - Create an issue [here](https://github.com/zemuldo/git-crypt-unlock/issues) for me to include the runtimme.
 
 ## Usage
@@ -38,7 +38,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Git-Crypt Unlock
-      uses: zemuldo/git-crypt-unlock@v2.0
+      uses: zemuldo/git-crypt-unlock@v3.0-alpha-1
       env:
         GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
         GPG_KEY_GRIP: ${{ secrets.GPG_KEY_GRIP }}
