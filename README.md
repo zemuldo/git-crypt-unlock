@@ -2,7 +2,7 @@
 
 GitHub action for unlocking files encrypted using Git-Crypt on your repository.
 
-## Version 2.0
+## Version 3.0
 
 Version 2.0 has the following important changes.
 
@@ -11,8 +11,8 @@ Version 2.0 has the following important changes.
 
 If your actions are running on windows or you are using a custom runtime that is not supported you can do two things
 
-- Use version `1.0`.
-- Create an issue [here](https://github.com/zemuldo/git-crypt-unlock/issues) for me to include.
+- Use version `2.0`.
+- Create an issue [here](https://github.com/zemuldo/git-crypt-unlock/issues) for me to include the runtimme.
 
 ## Usage
 
