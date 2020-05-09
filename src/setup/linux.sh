@@ -1,5 +1,8 @@
 #!/bin/sh
 
+GPG_TTY=$(tty)
+export GPG_TTY
+
 if ! [ -x "$(command -v gpg)" ]
  then
   sudo apt-get install gnupg
