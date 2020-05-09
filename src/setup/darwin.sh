@@ -1,10 +1,15 @@
 #!/bin/sh
 
+if ! [ -x "$(command -v gpg)" ]
+ then
+  HOMEBREW_NO_AUTO_UPDATE=1 brew install gnupg
+fi
+
 if [ -n "$GPG_PRIVATE_KEY" ]
  then
   echo "Setting up GnbuPG"
 else
-  echo "ERROR: This action can not run without Base 64 encoded GPG key in Variable GPG_PRIVATE_KEY"
+  echo "ERROR: This action can not run without Base64 encoded GPG key in Variable GPG_PRIVATE_KEY"
   exit 1
 fi
 
@@ -15,13 +20,6 @@ gpg --batch --import "$HOME"/git-crypt-key.asc
 rm "$HOME"/git-crypt-key.asc
 
 for fpr in $(gpg --list-keys --with-colons  | awk -F: '/fpr:/ {print $10}' | sort -u); do  echo -e "5\ny\n" |  gpg --command-fd 0 --expert --edit-key $fpr trust; done
-
-echo "Kill GPG agent and allow preset pass"
-gpgconf --kill gpg-agent
-
-gpg-agent --daemon --allow-preset-passphrase --max-cache-ttl 3153600000
-
-GPG_PATH=`gpgconf --list-dirs libexecdir`
 
 if [ -n "$GPG_KEY_PASS" ] && [ -n "$GPG_KEY_GRIP" ]
  then

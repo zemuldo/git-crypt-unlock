@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if ! [ -x "$(command -v gpg)" ]
+ then
+  sudo apt-get install gnupg
+fi
+
 if [ -n "$GPG_PRIVATE_KEY" ]
  then
   echo "Setting up GnbuPG"
@@ -7,7 +12,6 @@ else
   echo "ERROR: This action can not run without Base 64 encoded GPG key in Variable GPG_PRIVATE_KEY"
   exit 1
 fi
-
 
 echo "$GPG_PRIVATE_KEY" | base64 -d > "$HOME"/git-crypt-key.asc
 

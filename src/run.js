@@ -8,7 +8,6 @@ main().catch(err => {
 
 async function main() {
     try {
-
         if(process.env.GITHUB_REPOSITORY == "zemuldo/git-crypt-unlock"){
             console.log("Setting up for local action \n")
             await setup();

@@ -971,12 +971,12 @@ module.exports = async function main() {
     try {
         if(process.platform == "darwin"){
             console.log("Running on OS X \n")
-            await exec(__webpack_require__.ab + "darwin1.sh")
+            await exec(__webpack_require__.ab + "unlock.sh")
         }
     
         else if(process.platform == "linux") {
             console.log("Running on Linux")
-            await exec(__webpack_require__.ab + "linux1.sh")
+            await exec(__webpack_require__.ab + "unlock.sh")
         }
         else {
             console.error("This version only supports Linux and OSX, Use v1.0 for any other platform")
@@ -1010,7 +1010,6 @@ main().catch(err => {
 
 async function main() {
     try {
-
         if(process.env.GITHUB_REPOSITORY == "zemuldo/git-crypt-unlock"){
             console.log("Setting up for local action \n")
             await setup();

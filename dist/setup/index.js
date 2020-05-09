@@ -1316,8 +1316,13 @@ module.exports = require("path");
 const core = __webpack_require__(470)
 const setup = __webpack_require__(724)
 
+if(!process.platform in ["linux", "darwin"]){
+  core.setFailed(`This action only supports mac osx or linux runtimes ${err}`);
+  process.exit(1)
+}
+
 setup().catch(err => {
-  core.setFailed(err.message)
+  core.setFailed(`Action failed with error ${err}`)
 })
 
 
