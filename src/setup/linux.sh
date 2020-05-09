@@ -1,8 +1,6 @@
 #!/bin/sh
 
-GPG_TTY=$(tty)
-export GPG_TTY
-
+# Check if GnuPG is installed else install it
 if ! [ -x "$(command -v gpg)" ]
  then
   sudo apt-get install gnupg

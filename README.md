@@ -7,9 +7,12 @@ GitHub action for unlocking files encrypted using Git-Crypt on your repository.
 Version 2.0 has the following important changes.
 
 - Does not use docker.
-- Only supports Unix Ubuntu and OSX.
+- Only supports Ubuntu and OSX runtimes.
 
-If your actions are running on windows or you are using a custom runtime that is not supported consider using version `1.0`.
+If your actions are running on windows or you are using a custom runtime that is not supported you can do two things
+
+- Use version `1.0`.
+- Create an issue [here](https://github.com/zemuldo/git-crypt-unlock/issues) for me to include.
 
 ## Usage
 
