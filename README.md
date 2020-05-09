@@ -4,7 +4,7 @@ GitHub action for unlocking files encrypted using Git-Crypt on your repository.
 
 ## Version 3.0
 
-Version 2.0 has the following important changes.
+Version 3.0 has the following important changes.
 
 - Does not use docker.
 - Only supports Ubuntu and OSX runtimes.
