@@ -23,6 +23,7 @@ for fpr in $(gpg --list-keys --with-colons  | awk -F: '/fpr:/ {print $10}' | sor
 
 if [ -n "$GPG_KEY_PASS" ] && [ -n "$GPG_KEY_GRIP" ]
  then
+  GPG_PATH=`gpgconf --list-dirs libexecdir`
   gpgconf --kill gpg-agent
 
   gpg-agent --daemon --allow-preset-passphrase --max-cache-ttl 3153600000
